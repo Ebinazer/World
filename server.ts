@@ -2,7 +2,7 @@ import express from 'express';
 import { router } from './api';
 import cors from "cors";
 import * as dotenv from 'dotenv';
-import { sequelize } from "../server/system/db/sequelize"
+import { sequelize } from './system/db/sequelize';
 
 const fs = require('fs');
 
