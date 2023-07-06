@@ -1,0 +1,64 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    /* Replace with your desired background color */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+}
+
+#searchForm {
+    display: flex;
+    flex-grow: 1;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+#searchInput {
+    flex-grow: 1;
+    border: none;
+    padding: 10px 16px;
+    font-size: 16px;
+}
+
+#searchButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #45a049;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
+}

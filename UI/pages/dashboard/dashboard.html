@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="search-container">
+        <form id="searchForm" action="#">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button type="submit" id="searchButton"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <div id="searchResults"></div>
+    <button id="logoutButton" class="logout-btn" onclick="logout()">Logout</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            // Function to handle the search request
+            const search = async (queryValue) => {
+                try {
+                    const response = await fetch(`http://localhost:3000/serach-api?q=${queryValue}`);
+                    const data = await response.json();
+
+                    if (data.statusCode === 200) {
+                        const results = data.response;
+                        const searchResults = $("#searchResults");
+                        searchResults.empty();
+
+                        if (results.length > 0) {
+                            const uniqueResults = new Set();
+
+                            results.forEach(result => {
+                                const countryName = result.country;
+                                const cityName = result.city.join(", ");
+                                const language = result.language.join(", ");
+
+                                const resultString = `${countryName}-${cityName}-${language}`;
+                                uniqueResults.add(resultString);
+                            });
+
+                            uniqueResults.forEach(resultString => {
+                                const [countryName, cityName, language] = resultString.split("-");
+                                const resultHtml = `<div>
+                                <p><strong>Country:</strong> ${countryName}</p>
+                                <p><strong>Cities:</strong> ${cityName}</p>
+                                <p><strong>Language:</strong> ${language}</p>
+                            </div>`;
+                                searchResults.append(resultHtml);
+                            });
+                        } else {
+                            searchResults.append("<p>No results found.</p>");
+                        }
+                    } else {
+                        console.log("Error:", data.response);
+                    }
+                } catch (error) {
+                    console.log("Error:", error);
+                }
+            };
+
+            // Handle form submission
+            $("#searchForm").submit((event) => {
+                event.preventDefault();
+                console.log('hello')
+                const query = $("#searchInput").val().trim();
+                window.location.href = `/UI/pages/searchresults/searchresults.html?query=${query}`;
+            });
+
+            // Handle input changes
+            $("#searchInput").on("input", () => {
+                const query = $("#searchInput").val().trim();
+                console.log(query, '--------------------')
+                if (query.length >= 3) {
+                    search(query);
+                } else {
+                    $("#searchResults").empty();
+                }
+            });
+        });
+        function logout() {
+            window.location.href = '/UI/pages/login/signin.html';
+        }
+    </script>
+
+</body>
+
+</html>
