@@ -22,9 +22,8 @@ Clone it to the local machine
 # Dump sql Data to database
 The world.sql contains three table data please run the dump file in the mysql workbench. the data will automatically be stored in the db.
 
-
 # Database connection
-The Dump file would have created schema take the detials like Host, db username and password and replace in the env file. so the db is connected
+The Dump file would have created schema take the detaills like Host, db username ,password and database and replace in the env file. so the database conection would happen.
 
 # libraries
 Npm i ( would install all the libraries required)
