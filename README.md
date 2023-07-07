@@ -20,7 +20,7 @@ The world.sql contains three table data please run the dump file in the mysql wo
 # Database connection
 The Dump file would have created schema take the detials like Host, db username and password and replace in the env file. so the db is connected
 
-# Libriraies
+# libraries
 Npm i ( would install all the libraries required)
 
 # Good to go for the server
