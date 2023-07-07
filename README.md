@@ -2,6 +2,12 @@
 
 The Application is created with nodejs and express server. and Google O2Auth for email. The UI is simple html and css.
 
+# Dependencies
+Nodejs
+Visual studio (IDE)
+Mysql workbench 
+Browser to run the UI (html)
+
 Initial setup
 
 # Install the Node.js version required for the app to run
