@@ -72,7 +72,7 @@
             $("#searchInput").on("input", () => {
                 const query = $("#searchInput").val().trim();
                 console.log(query, '--------------------')
-                if (query.length >= 3) {
+                if (query.length >= 0) {
                     search(query);
                 } else {
                     $("#searchResults").empty();
