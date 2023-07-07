@@ -25,7 +25,7 @@ Npm i ( would install all the libraries required)
 
 # Good to go for the server
 Once the libraries are installed  
-Npm start would run the server and it would automatically create the remaining tables which are missing, in our case user and 
+Npm start would run the server and it would automatically create the remaining tables which are missing, in our case user and temporaryOtp.
 
 # User interface
 Once the backend is up and running and the table are syncronized. Go the UI folder .click on .login or signup folder and open the html file. and its good to go
